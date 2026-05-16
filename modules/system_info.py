@@ -1,0 +1,23 @@
+import platform
+import socket
+
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
+
+def system_info():
+
+    table = Table(title="System Information")
+
+    table.add_column("Key", style="cyan")
+    table.add_column("Value", style="green")
+
+    table.add_row("System", platform.system())
+    table.add_row("Node", platform.node())
+    table.add_row("Release", platform.release())
+    table.add_row("Processor", platform.processor())
+    table.add_row("Hostname", socket.gethostname())
+
+    console.print(table)
